@@ -104,6 +104,60 @@ namespace BinaryTree
         {
             return (double)Sum() / Count();
         }
+        public void erase(int Data)
+        {
+            erase(Data, Root);
+        }
+        void erase(int Data, Element Root)
+        {
+            if (Root == null) return;
+            erase(Data, Root.pLeft);
+            erase(Data, Root.pRight);
+            if (Data == Root.Data)
+            {
+                if (Root.pLeft == Root.pRight)
+                {
+                    Root = null;
+                }
+                else
+                {
+                    if (Count(Root.pLeft) > Count(Root.pRight))
+                    {
+                        Root.Data = MaxElement(Root.pLeft);
+                        erase(MaxElement(Root.pLeft), Root.pLeft);
+                    }
+                    else
+                    {
+                        Root.Data = MinElement(Root.pRight);
+                        erase(MinElement(Root.pRight), Root.pRight);
+                    }
+                    
+                }
+            }
+        }
+        public void clear()
+        {
+            clear(Root);
+            Root = null;
+        }
+        void clear(Element Root)
+        {
+            if (Root == null) return;
+            clear(Root.pLeft);
+            clear(Root.pRight);
+            Root=null;
+        }
+        public int depth()
+	    {
+		    return depth(Root);
+        }
+        int depth(Element Root)
+	    {
+		    if (Root == null)return 0;
+		    int l_depth = depth(Root.pLeft) + 1;
+            int r_depth = depth(Root.pRight) + 1;
+		    return l_depth > r_depth? l_depth : r_depth;
+	    }
 
     }
 }
