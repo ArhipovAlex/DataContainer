@@ -1,7 +1,8 @@
-﻿//#define BASE_CHECK
-#define ERASE_CHECK
+﻿#define BASE_CHECK
+//#define ERASE_CHECK
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,9 +25,14 @@ namespace BinaryTree
             }
             tree.Print();
             //tree.Clear();
+            Stopwatch sw = new Stopwatch();
             try
             {
+                sw.Start();
                 Console.WriteLine($"Минимальное значение в дереве: {tree.MinElement()}");
+                sw.Stop();
+                Console.WriteLine($"Вычислено за: {sw.Elapsed}");
+                TreePreformance.Measure("Максимальное значение в дереве: ",tree.MaxElement(), tree);
                 Console.WriteLine($"Максимальное значение в дереве:{tree.MaxElement()}");
                 Console.WriteLine($"Сумма элементов дерева: {tree.Sum()}");
                 Console.WriteLine($"Количество элементов дерева: {tree.Count()}");

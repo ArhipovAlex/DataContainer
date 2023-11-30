@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTree", "BinaryTree\BinaryTree.csproj", "{55C2A682-908F-43FC-B3F7-E9C1F9A3E3CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Police", "Police\Police.csproj", "{A855997B-1F72-4A87-A44A-D609585AF913}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{55C2A682-908F-43FC-B3F7-E9C1F9A3E3CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55C2A682-908F-43FC-B3F7-E9C1F9A3E3CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55C2A682-908F-43FC-B3F7-E9C1F9A3E3CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A855997B-1F72-4A87-A44A-D609585AF913}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A855997B-1F72-4A87-A44A-D609585AF913}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A855997B-1F72-4A87-A44A-D609585AF913}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A855997B-1F72-4A87-A44A-D609585AF913}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
