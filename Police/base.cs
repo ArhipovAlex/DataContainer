@@ -14,7 +14,10 @@ namespace Police
     {
         private Dictionary<LicencePlate, List<Crime>> police_base;
         const string delimiter = "\n-------------------------------\n";
-
+        public Base() 
+        {
+            this.police_base = new Dictionary<LicencePlate, List<Crime>>();
+        }
         public Base(Dictionary<LicencePlate, List<Crime>> police_base)
         {
             this.police_base = new Dictionary<LicencePlate, List<Crime>>(police_base);
@@ -26,7 +29,7 @@ namespace Police
                 Console.WriteLine($"{i.Key}:\n");
                 foreach (Crime j in i.Value)
                 {
-                    Console.WriteLine(j.ToString());
+                    Console.WriteLine(j.ToScreen());
                 }
                 Console.WriteLine(delimiter);
             }
@@ -34,53 +37,37 @@ namespace Police
         public void Save(string filename)
         {
             StreamWriter sw = new StreamWriter(filename);
-            foreach(KeyValuePair<LicencePlate,List<Crime>> i in police_base)
+            foreach (KeyValuePair<LicencePlate, List<Crime>> i in police_base)
             {
-                sw.Write(i.Key + "@");
-                foreach(Crime j in i.Value) 
+                sw.Write(i.Key + ":");
+                foreach (Crime j in i.Value)
                 {
-                    sw.Write(j+";");
+                    sw.Write(j + ";");
                 }
                 sw.WriteLine();
             }
             sw.Close();
-            System.Diagnostics.Process.Start("notepad",filename);
+            System.Diagnostics.Process.Start("notepad", filename);
         }
-        
-        public Dictionary<LicencePlate, List<Crime>> Load(string filename)
+
+        public void Load(string filename)
         {
-            string line;
-            string[] crimes;
-            string[] crime;
-            string[] detail;
-            try
+            StreamReader sr = new StreamReader(filename);
+            while(!sr.EndOfStream) 
             {
-                StreamReader sr=new StreamReader(filename);
-                line = sr.ReadLine();
-                Dictionary<LicencePlate, List <Crime>> police = new Dictionary<LicencePlate, List<Crime>>();
-                while (line != null) 
+                string buffer = sr.ReadLine();
+                LicencePlate plate = new LicencePlate(buffer.Split(':')[0]);
+                buffer = buffer.Replace(plate + ":", "");
+                string[] crimes = buffer.Split(';');
+                crimes = crimes.Where(val=>val!="").ToArray();
+                List<Crime> list_of_crimes =new List<Crime>();
+                foreach(string crime in crimes)
                 {
-                    //police.Add(new LicencePlate(line.Substring(0,line.IndexOf("@"))),???);
-                    crimes = line.Split('@');
-                    //crimes[0] - LicencePlate
-                    crime = crimes[1].Split(';');
-                    foreach(string details in crime) 
-                    {
-                        detail = details.Split(',');
-                        //detail[0] - DateTime
-                        //detail[1] - Violation
-                        //detail[2] - Plase
-                        police.Add(crimes[0],new Crime(Int32.Parse(detail[1]), DateTime.Parse(detail[0]), detail[2]));
-                    }
-                    line = sr.ReadLine();
+                    list_of_crimes.Add(new Crime(crime));
                 }
-                sr.Close();
-                return police;
+                police_base.Add(plate, list_of_crimes);
             }
-            catch (FileNotFoundException e)
-            {
-                Console.WriteLine("File not Found!!!");
-            }
+            sr.Close();
         }
     }
 }

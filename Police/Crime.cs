@@ -24,10 +24,25 @@ namespace Police
             DateTime = dateTime;
             Place = place;
         }
+        public Crime(string description)
+        {
+            string[] elements=description.Split(' ');
+            description=description.Replace(elements[0]+" ", "");
+            description=description.Replace(elements[1]+" ", "");
+            long timestamp = Convert.ToInt64(elements[0]);
+            DateTime=DateTime.FromBinary(timestamp);
+            ID = Convert.ToInt32(elements[1]);
+            Place = description;
+        }
         public override string ToString()
         {
             var viol = Violations.list;
-            return $"{DateTime.ToString()},{ID},{Place}";
+            return $"{DateTime.ToBinary()} {ID} {Place}";
         }
+        public string ToScreen()
+        {
+            return $"{DateTime.ToString()}: {Violations.list[ID]},{Place}";
+        }
+
     }
 }
