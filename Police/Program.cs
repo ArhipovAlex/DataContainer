@@ -73,8 +73,9 @@ namespace Police
             */
             #endregion
             Base @base = new Base(police_base);
-            @base.Print();
-            @base.Save("Base.txt");
+            //@base.Print();
+            //@base.Save("Base.txt");
+            @base.Load("Base.txt");
         }
     }
 }
