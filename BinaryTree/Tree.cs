@@ -19,11 +19,11 @@ namespace BinaryTree
                 this.Data = data;
                 this.pLeft = pLeft;
                 this.pRight = pRight;
-                Console.WriteLine($"EConstructor:\t{GetHashCode()}");
+                //Console.WriteLine($"EConstructor:\t{GetHashCode()}");
             }
             ~Element()
             {
-                Console.WriteLine($"EDestructor:\t{GetHashCode()}");
+                //Console.WriteLine($"EDestructor:\t{GetHashCode()}");
             }
         }
         protected Element Root { get; set; }

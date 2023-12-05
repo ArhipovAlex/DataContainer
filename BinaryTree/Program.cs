@@ -24,7 +24,7 @@ namespace BinaryTree
             {
                 tree.Insert(random.Next(100));
             }
-            tree.Print();
+            //tree.Print();
             //tree.Clear();
             Stopwatch sw = new Stopwatch();
             try
@@ -34,13 +34,21 @@ namespace BinaryTree
                 Console.WriteLine($"Минимальное значение в дереве: {tree.MinElement()}");
                 sw.Stop();
                 Console.WriteLine($"Вычислено за: {sw.Elapsed}");
-                NoParameters noPrm = new(tree.MinElement);
-                //TreePreformance.Measure("Максимальное значение в дереве: ",tree.MaxElement(), tree);
-                Console.WriteLine($"Максимальное значение в дереве:{tree.MaxElement()}");
-                Console.WriteLine($"Сумма элементов дерева: {tree.Sum()}");
-                Console.WriteLine($"Количество элементов дерева: {tree.Count()}");
-                Console.WriteLine($"Среднее арифметическое дерева: {tree.Avarage()}");
-                Console.WriteLine($"Глубина дерева: {tree.Depth()}");
+                TreePreformance<int>.Measure("Максимальное значение в дереве:", tree.MaxElement);
+                //Console.WriteLine($"Максимальное значение в дереве:{tree.MaxElement()}");
+
+                TreePreformance<int>.Measure("Сумма элементов дерева:", tree.Sum);
+                //Console.WriteLine($"Сумма элементов дерева: {tree.Sum()}");
+
+                TreePreformance<int>.Measure("Количество элементов дерева:", tree.Count);
+                //Console.WriteLine($"Количество элементов дерева: {tree.Count()}");
+
+                TreePreformance<double>.Measure("Среднее арифметическое дерева:", tree.Avarage);
+                //Console.WriteLine($"Среднее арифметическое дерева: {tree.Avarage()}");
+
+                TreePreformance<int>.Measure("Глубина дерева:", tree.Depth);
+                //Console.WriteLine($"Глубина дерева: {tree.Depth()}");
+
                 Console.Write("Введите удаляемое значение: ");
                 int value = Convert.ToInt32(Console.ReadLine());
                 tree.Erase(value);

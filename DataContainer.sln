@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTree", "BinaryTree\Bi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Police", "Police\Police.csproj", "{A855997B-1F72-4A87-A44A-D609585AF913}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegate", "Delegate\Delegate.csproj", "{F901EAA7-8CAF-4DF3-AC8F-3BF05E1640E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A855997B-1F72-4A87-A44A-D609585AF913}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A855997B-1F72-4A87-A44A-D609585AF913}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A855997B-1F72-4A87-A44A-D609585AF913}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F901EAA7-8CAF-4DF3-AC8F-3BF05E1640E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F901EAA7-8CAF-4DF3-AC8F-3BF05E1640E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F901EAA7-8CAF-4DF3-AC8F-3BF05E1640E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F901EAA7-8CAF-4DF3-AC8F-3BF05E1640E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
