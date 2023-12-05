@@ -11,6 +11,7 @@ namespace BinaryTree
 {
     internal class Program
     {
+        public delegate void NoParameters();
         static void Main(string[] args)
         {
 #if BASE_CHECK
@@ -28,11 +29,13 @@ namespace BinaryTree
             Stopwatch sw = new Stopwatch();
             try
             {
+
                 sw.Start();
                 Console.WriteLine($"Минимальное значение в дереве: {tree.MinElement()}");
                 sw.Stop();
                 Console.WriteLine($"Вычислено за: {sw.Elapsed}");
-                TreePreformance.Measure("Максимальное значение в дереве: ",tree.MaxElement(), tree);
+                NoParameters noPrm = new(tree.MinElement);
+                //TreePreformance.Measure("Максимальное значение в дереве: ",tree.MaxElement(), tree);
                 Console.WriteLine($"Максимальное значение в дереве:{tree.MaxElement()}");
                 Console.WriteLine($"Сумма элементов дерева: {tree.Sum()}");
                 Console.WriteLine($"Количество элементов дерева: {tree.Count()}");
@@ -72,5 +75,7 @@ namespace BinaryTree
             tree.Print();
 #endif //ERASE_CHECK
         }
+
+        
     }
 }

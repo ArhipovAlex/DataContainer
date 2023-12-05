@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -74,7 +75,7 @@ namespace BinaryTree
             Print(Root.pRight);
         }
         public int MinElement()=> MinElement(Root);
-
+        
         int MinElement(Element Root)
         {
             if (Root == null) throw new Exception("Tree is empty");
